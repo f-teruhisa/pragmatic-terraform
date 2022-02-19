@@ -12,3 +12,12 @@ module "example_sg" {
   port        = 80
   cidr_blocks = ["0.0.0.0/0"]
 }
+
+provider "aws" {
+  region = "ap-northeast-1"
+}
+
+terraform {
+  required_version = ">= 0.12"
+}
+
