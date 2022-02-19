@@ -47,7 +47,7 @@ resource "aws_s3_bucket" "alb_log" {
 
 resource "aws_s3_bucket_policy" "alb_log" {
   bucket = aws_s3_bucket_policy.alb_log.id
-  policy = dat
+  policy = data.aws_iam_policy_document.alb_log.json
 }
 
 data "aws_iam_policy_document" "alb_log" {
@@ -57,8 +57,8 @@ data "aws_iam_policy_document" "alb_log" {
     resources = ["arn:aws:s3:::${aws_s3_bucket.alb_log.id}/*"]
 
     principals {
-      identifiers = ["582318560864"]
       type        = "AWS"
+      identifiers = ["582318560864"]
     }
   }
 }
