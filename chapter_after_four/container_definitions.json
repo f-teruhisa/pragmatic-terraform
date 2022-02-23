@@ -1,5 +1,3 @@
-
-
 [
   {
     "name": "example",
@@ -13,11 +11,16 @@
         "awslogs-group": "/ecs/example"
       }
     },
-    "portMappings": [
+    "secrets":[
       {
-        "protocol": "tcp",
-        "containerPort": 80
+        "name": "DB_USERNAME",
+        "valueFrom":"/db/username"
+      },
+      {
+        "name": "DB_PASSWORD",
+        "valueFrom": "/db/password"
       }
-    ]
+    ],
+    "command": ["/usr/bin/env"]
   }
 ]
