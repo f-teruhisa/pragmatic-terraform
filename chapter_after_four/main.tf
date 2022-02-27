@@ -22,7 +22,8 @@ module "example_sg" {
 }
 
 provider "aws" {
-  region = "ap-northeast-1"
+  region  = "ap-northeast-1"
+  version = "~> 3.37"
 }
 
 terraform {

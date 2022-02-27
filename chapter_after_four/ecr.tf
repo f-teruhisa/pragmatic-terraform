@@ -9,10 +9,10 @@ resource "aws_ecr_lifecycle_policy" "example" {
     "rules": [
       {
         "rulePriority": 1,
-        "description": "Keep last 30 release tagged image"
+        "description": "Keep last 30 release tagged image",
         "selection": {
           "tagStatus": "tagged",
-          "tagPrefixList": ["release"]m
+          "tagPrefixList": ["release"],
           "countType": "imageCountMoreThan",
           "countNumber": 30
         },
