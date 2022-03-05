@@ -1,5 +1,5 @@
 resource "aws_ecr_repository" "example" {
-  name = "example"
+  name = "pragmatic-terraform-example-f-teruhisa"
 }
 
 resource "aws_ecr_lifecycle_policy" "example" {

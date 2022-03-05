@@ -29,7 +29,7 @@ module "codepipeline-role" {
 }
 
 resource "aws_s3_bucket" "artifact" {
-  bucket = "artifact-pragmatic-terraform-on-aws"
+  bucket = "artifact-pragmatic-terraform-on-aws-f-teruhisa"
 
   lifecycle_rule {
     enabled = true
@@ -40,10 +40,13 @@ resource "aws_s3_bucket" "artifact" {
   }
 }
 
+data "aws_ssm_parameter" "github_token" {
+  name = "/continuous_apply/github_token"
+}
 
 resource "aws_codepipeline" "example" {
   name     = "example"
-  role_arn = module.codebuild_role.iam_role_arn
+  role_arn = module.codepipeline-role.iam_role_arn
 
   stage {
     name = "Source"
@@ -60,6 +63,7 @@ resource "aws_codepipeline" "example" {
         Repo                 = "pragmatic-terraform"
         Branch               = "master"
         PollForSourceChanges = false
+        OAuthToken           = data.aws_ssm_parameter.github_token.value
       }
     }
   }

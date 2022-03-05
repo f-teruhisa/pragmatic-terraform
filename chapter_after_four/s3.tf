@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "private" {
-  bucket = "private-pragmatic-terraform-on-aws"
+  bucket = "private-pragmatic-terraform-on-aws-f-teruhisa"
 
   versioning {
     enabled = true
@@ -23,19 +23,19 @@ resource "aws_s3_bucket_public_access_block" "private" {
 }
 
 resource "aws_s3_bucket" "public" {
-  bucket = "public-pragmatic-terraform-on-aws"
+  bucket = "public-pragmatic-terraform-on-aws-f-teruhisa"
   acl    = "public-read"
 
   cors_rule {
-    allowed_methods = ["https://example.com"]
-    allowed_origins = ["GET"]
+    allowed_methods = ["GET"]
+    allowed_origins = ["https://plagmatic-terraform-example.com"]
     allowed_headers = ["*"]
     max_age_seconds = 3000
   }
 }
 
 resource "aws_s3_bucket" "alb_log" {
-  bucket = "alb-log-pragmatic-terraform-on-aws"
+  bucket = "alb-log-pragmatic-terraform-on-aws-f-teruhisa"
   lifecycle_rule {
     enabled = true
 

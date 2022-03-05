@@ -83,12 +83,12 @@ resource "aws_route" "private_1" {
 
 resource "aws_route_table_association" "private_0" {
   subnet_id      = aws_subnet.private_0.id
-  route_table_id = aws_route.private_0.id
+  route_table_id = aws_route_table.private_0.id
 }
 
 resource "aws_route_table_association" "private_1" {
   subnet_id      = aws_subnet.private_1.id
-  route_table_id = aws_route.private_1.id
+  route_table_id = aws_route_table.private_1.id
 }
 
 resource "aws_eip" "nat_gateway_0" {

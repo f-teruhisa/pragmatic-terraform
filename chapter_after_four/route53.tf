@@ -3,7 +3,7 @@ data "aws_route53_zone" "example" {
 }
 
 resource "aws_route53_zone" "test_example" {
-  name = "test.example.com"
+  name = "test.plagmatic-terraform-example.com"
 }
 
 resource "aws_route53_record" "example_certificate" {
